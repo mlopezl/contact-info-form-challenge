@@ -1,52 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Contact form</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-
-  Contact Us
-
-  First Name
-  This field is required
-
-  Last Name
-  This field is required
-
-  Email Address
-  Please enter a valid email address
-  This field is required
-
-  Query Type
-  General Enquiry
-  Support Request
-  Please select a query type
-
-  Message
-  This field is required
-
-  I consent to being contacted by the team
-  To submit this form, please consent to being contacted
-
-  Submit
-
-  Message Sent!
-  Thanks for completing the form. We'll be in touch soon!
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <title>Frontend Mentor | Contact form</title>
+  </head>
+  <body>
+    <div class="container">
+      <form class="form" method="post" novalidate>
+        <h2 class="form__title">Contact Us</h2>
+        <section class="form__info">
+          <div class="form__personal-data">
+            <label for="name">First Name *</label>
+            <input type="text" id="name" name="name" required />
+            <p class="hide">This field is required</p>
+          </div>
+          <div class="form__personal-data">
+            <label for="lastname">Last Name *</label>
+            <input type="text" id="lastname" name="lastname" required />
+            <p class="hide">This field is required</p>
+          </div>
+          <div class="form__personal-data">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required />
+            <p class="hide">This field is required</p>
+            <p class="hide">Please enter a valid email address</p>
+          </div>
+        </section>
+        <section class="form__query">
+          <label>Query Type *</label>
+          <div class="form__query-type">
+            <input
+              type="radio"
+              id="general"
+              value="general"
+              name="query-type"
+              required
+            />
+            <label for="general">General Enquiry</label>
+          </div>
+          <div class="form__query-type">
+            <input
+              type="radio"
+              id="support"
+              value="support"
+              name="query-type"
+            />
+            <label for="support">Support Request</label>
+          </div>
+          <p class="hide">Please select a query type</p>
+        </section>
+        <section class="form__message">
+          <div class="form__message-container">
+            <label for="message">Message *</label>
+            <textarea name="message" id="message" required></textarea>
+            <p class="hide">This field is required</p>
+          </div>
+          <div class="form__consent">
+            <input type="checkbox" id="consent" name="consent" required />
+            <label for="consent"
+              >I consent to being contacted by the team</label
+            >
+            <p class="hide">
+              To submit this form, please consent to being contacted
+            </p>
+          </div>
+        </section>
+        <button type="submit">Submit</button>
+      </form>
+      <section class="success__message hide">
+        <div>
+          <img
+            src="./assets/images/icon-success-check.svg"
+            alt="Success icon"
+          />
+          <p>Message Sent!</p>
+        </div>
+        <p>Thanks for completing the form. We'll be in touch soon!</p>
+      </section>
+    </div>
+  </body>
 </html>
