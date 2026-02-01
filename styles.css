@@ -3,6 +3,7 @@
 :root{
     --Green-200: hsl(148, 38%, 91%); /*lighter*/
     --Green-600: hsl(169, 82%, 27%); /*Medium*/
+    --Green-hover: hsl(172, 83%, 14%);
     --Red: hsl(0, 66%, 54%);
     --White: hsl(0, 0%, 100%);
     --Grey-500: hsl(186, 15%, 59%); /*medium*/
@@ -29,11 +30,14 @@ body{
     background-color: var(--Green-200);
     padding-top: 30px;
     padding-bottom: 30px;
+    display: grid;
+    place-content: center;
 }
 
 .form{
     margin: 0 auto;
     width: 90%;
+    max-width: 800px;
     min-height: 100vh;
     background-color: var(--White);
     padding: 20px;
@@ -56,11 +60,19 @@ body{
 }
 
 .form__personal-data{
-    width: 300px;
+    width: 200px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.form__personal-data input{
+    transition: all 300ms ease;
+}
+
+.form__personal-data:hover input{
+    border: 1px solid var(--Green-600);
 }
 
 .form__personal-data label,
@@ -84,10 +96,22 @@ body{
     height: 50px;
     border-radius: 5px;
     border: 1px solid var(--Grey-500);
+    padding: 10px;
 }
 
 .form__query{
     flex-direction: column;
+}
+
+.form__query-types{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.form__query > label{
+    width: 100%;
 }
 
 .form__query-type{
@@ -96,6 +120,11 @@ body{
     align-items: center;
     gap: 10px;
     padding: 20px;
+    transition: all 300ms ease;
+}
+
+.form__query-type:hover{
+    border: 1px solid var(--Green-600);
 }
 
 .form__query-type label{
@@ -114,6 +143,12 @@ body{
     height: 200px;
     border-radius: 5px;
     border: 1px solid var(--Grey-500);
+    padding: 10px;
+    transition: all 300ms ease;
+}
+
+.form__message-container textarea:hover{
+    border: 1px solid var(--Green-600);
 }
 
 .form__consent{
@@ -131,8 +166,47 @@ body{
     outline: none;
     border: none;
     border-radius: 10px;
+    transition: all 300ms ease;
+}
+
+.form__submit:hover{
+    background-color: var(--Green-hover);
 }
 
 .hide{
     display: none;
+}
+
+@media (min-width: 426px){
+    .form{
+        min-height: 500px;
+    }
+
+    .form__title{
+        margin-bottom: 10px;
+    }
+
+    .form__info,
+    .form__query,
+    .form__message{
+        gap: 10px;
+    }
+
+    .form__query-types{
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .form__message-container textarea{
+        height: 80px;
+    }
+
+    .form__personal-data input,
+    .form__query-type{
+        height: 35px;
+    }
+
+    .form__submit{
+        height: 40px;
+    }
 }

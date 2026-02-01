@@ -10,7 +10,7 @@
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
     />
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles.css" />
 
     <title>Frontend Mentor | Contact form</title>
   </head>
@@ -38,25 +38,28 @@
         </section>
         <section class="form__query">
           <label>Query Type <span>*</span></label>
-          <div class="form__query-type">
-            <input
-              type="radio"
-              id="general"
-              value="general"
-              name="query-type"
-              required
-            />
-            <label for="general">General Enquiry</label>
+          <div class="form__query-types">
+            <div class="form__query-type">
+              <input
+                type="radio"
+                id="general"
+                value="general"
+                name="query-type"
+                required
+              />
+              <label for="general">General Enquiry</label>
+            </div>
+            <div class="form__query-type">
+              <input
+                type="radio"
+                id="support"
+                value="support"
+                name="query-type"
+              />
+              <label for="support">Support Request</label>
+            </div>
           </div>
-          <div class="form__query-type">
-            <input
-              type="radio"
-              id="support"
-              value="support"
-              name="query-type"
-            />
-            <label for="support">Support Request</label>
-          </div>
+
           <p class="hide">Please select a query type</p>
         </section>
         <section class="form__message">
