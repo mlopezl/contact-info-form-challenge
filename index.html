@@ -10,6 +10,7 @@
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
     />
+    <link rel="stylesheet" href="./styles.css">
 
     <title>Frontend Mentor | Contact form</title>
   </head>
@@ -19,24 +20,24 @@
         <h2 class="form__title">Contact Us</h2>
         <section class="form__info">
           <div class="form__personal-data">
-            <label for="name">First Name *</label>
+            <label for="name">First Name <span>*</span></label>
             <input type="text" id="name" name="name" required />
             <p class="hide">This field is required</p>
           </div>
           <div class="form__personal-data">
-            <label for="lastname">Last Name *</label>
+            <label for="lastname">Last Name <span>*</span></label>
             <input type="text" id="lastname" name="lastname" required />
             <p class="hide">This field is required</p>
           </div>
           <div class="form__personal-data">
-            <label for="email">Email Address *</label>
+            <label for="email">Email Address <span>*</span></label>
             <input type="email" id="email" name="email" required />
             <p class="hide">This field is required</p>
             <p class="hide">Please enter a valid email address</p>
           </div>
         </section>
         <section class="form__query">
-          <label>Query Type *</label>
+          <label>Query Type <span>*</span></label>
           <div class="form__query-type">
             <input
               type="radio"
@@ -60,21 +61,21 @@
         </section>
         <section class="form__message">
           <div class="form__message-container">
-            <label for="message">Message *</label>
+            <label for="message">Message <span>*</span></label>
             <textarea name="message" id="message" required></textarea>
             <p class="hide">This field is required</p>
           </div>
           <div class="form__consent">
             <input type="checkbox" id="consent" name="consent" required />
             <label for="consent"
-              >I consent to being contacted by the team</label
+              >I consent to being contacted by the team <span>*</span></label
             >
             <p class="hide">
               To submit this form, please consent to being contacted
             </p>
           </div>
         </section>
-        <button type="submit">Submit</button>
+        <button class="form__submit" type="submit">Submit</button>
       </form>
       <section class="success__message hide">
         <div>
