@@ -69,10 +69,15 @@ body{
 
 .form__personal-data input{
     transition: all 300ms ease;
+    color: var(--Grey-900);
+    font-size: 1rem;
+    font-family: "Karla", sans-serif;
 }
 
-.form__personal-data:hover input{
+.form__personal-data:hover input,
+.form__personal-data input:focus{
     border: 1px solid var(--Green-600);
+    outline: none;
 }
 
 .form__personal-data label,
@@ -118,17 +123,30 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 10px;
-    padding: 20px;
+    justify-content: space-around;
     transition: all 300ms ease;
 }
 
-.form__query-type:hover{
+.form__query-type:hover,
+.form__query-type:focus-within{
     border: 1px solid var(--Green-600);
+    background-color: var(--Green-200);
 }
+
+.form__query-type input:checked,
+.form__query-type input:focus{
+    accent-color: var(--Green-600);
+    outline: none;
+}
+
+.form__query-type input{
+    width: 10%;
+}
+
 
 .form__query-type label{
    color: var(--Grey-900);
+   width: 90%;
 }
 
 .form__message-container{
@@ -145,9 +163,14 @@ body{
     border: 1px solid var(--Grey-500);
     padding: 10px;
     transition: all 300ms ease;
+    color: var(--Grey-900);
+    font-family: 'Karla', sans-serif;
+    font-size: 1rem;
+    outline: none;
 }
 
-.form__message-container textarea:hover{
+.form__message-container textarea:hover,
+.form__message-container textarea:focus{
     border: 1px solid var(--Green-600);
 }
 
@@ -156,6 +179,13 @@ body{
     align-items: center;
     gap: 10px;
 }
+
+.form__consent input:checked{
+    accent-color: var(--Green-600);
+    outline: none;
+    border: none;
+}
+
 
 .form__submit{
     width: 100%;
@@ -169,12 +199,49 @@ body{
     transition: all 300ms ease;
 }
 
-.form__submit:hover{
+.form__submit:hover,
+.form__submit:focus{
     background-color: var(--Green-hover);
 }
 
 .hide{
     display: none;
+}
+
+.success__message{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    max-width: 280px;
+    width: 90%;
+    height: 80px;
+    background-color: var(--Grey-900);
+    color: var(--White);
+    top: 10px;
+    left: calc(50% - (280px / 2));
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.success__message div{
+    display: flex;
+    gap: 10px;
+}
+
+.success__message img{
+    width: 15px;
+}
+
+.success__message div p{
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.success__message p{
+    font-size: 0.8rem;
+    font-weight: 300;
 }
 
 @media (min-width: 426px){
@@ -208,5 +275,10 @@ body{
 
     .form__submit{
         height: 40px;
+    }
+
+    .success__message{
+        max-width: 360px;
+        left: calc(50% - (360px / 2));
     }
 }
