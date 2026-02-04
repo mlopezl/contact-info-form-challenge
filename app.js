@@ -1,0 +1,95 @@
+const form = document.querySelector(".form");
+const successMessage = document.querySelector(".success__message");
+const inputs = document.querySelectorAll(".form__part");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const submit = false;
+  const inputsArray = Array.from(inputs);
+
+
+  inputsArray.forEach((element) => {
+  let tagName = element.tagName;
+  let validationText = element.nextElementSibling;
+  let inputValue = element.value;
+  const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+    if (element.type === "text") {
+      if (inputValue.trim() === "") {
+        validationText.classList.remove("hide");
+      } else {
+        validationText.classList.add("hide");
+      }
+    } else if (element.type === "email") {
+      if (!emailRegex.test(inputValue.trim())) {
+        validationText.nextElementSibling.classList.remove("hide");
+      } else {
+        validationText.nextElementSibling.classList.add("hide");
+      }
+
+      if (inputValue.trim() === "") {
+        validationText.classList.remove("hide");
+      } else {
+        validationText.classList.add("hide");
+      }
+    }  else if (element.type === "radio") {
+      if (inputValue) {
+        element.parentElement.parentElement.nextElementSibling.classList.remove('hide');
+      } else {
+        element.parentElement.parentElement.nextElementSibling.classList.add('hide');
+      }
+    }   
+    else if (tagName === "TEXTAREA") {
+      if (inputValue.trim() === "") {
+        validationText.classList.remove("hide");
+      } else {
+        validationText.classList.add("hide");
+      }
+    } else if (element.type === "checkbox") {
+      if (inputValue) {
+        validationText.nextElementSibling.nextElementSibling.classList.remove("hide");
+      } else {
+        validationText.nextElementSibling.nextElementSibling.classList.add("hide");
+      }
+    }
+  });
+
+  if (submit) {
+    successMessage.classList.remove("hide");
+  }
+});
+
+form.addEventListener("input", (e) => {
+  e.preventDefault();
+  let element = e.target;
+  let tagName = e.target.tagName;
+  let validationText = element.nextElementSibling;
+  let inputValue = e.target.value;
+  const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+  if (element.type === "text") {
+    if (inputValue.trim() === "") {
+      validationText.classList.remove("hide");
+    } else {
+      validationText.classList.add("hide");
+    }
+  } else if (element.type === "email") {
+    if (!emailRegex.test(inputValue.trim())) {
+      validationText.nextElementSibling.classList.remove("hide");
+    } else {
+      validationText.nextElementSibling.classList.add("hide");
+    }
+
+    if (inputValue.trim() === "") {
+      validationText.classList.remove("hide");
+    } else {
+      validationText.classList.add("hide");
+    }
+  } else if (tagName === "TEXTAREA") {
+    if (inputValue.trim() === "") {
+      validationText.classList.remove("hide");
+    } else {
+      validationText.classList.add("hide");
+    }
+  }
+});

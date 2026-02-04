@@ -176,6 +176,7 @@ body{
 
 .form__consent{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 10px;
 }
@@ -202,10 +203,6 @@ body{
 .form__submit:hover,
 .form__submit:focus{
     background-color: var(--Green-hover);
-}
-
-.hide{
-    display: none;
 }
 
 .success__message{
@@ -244,9 +241,20 @@ body{
     font-weight: 300;
 }
 
+.hide{
+    display: none;
+}
+
+.validation__text{
+    color: var(--Red);
+    font-size: 0.9rem;
+}
+
 @media (min-width: 426px){
     .form{
-        min-height: 500px;
+        max-width: 700px;
+        min-height: 550px;
+        height: auto;
     }
 
     .form__title{

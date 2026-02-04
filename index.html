@@ -21,19 +21,19 @@
         <section class="form__info">
           <div class="form__personal-data">
             <label for="name">First Name <span>*</span></label>
-            <input type="text" id="name" name="name" required />
-            <p class="hide">This field is required</p>
+            <input type="text" id="name" name="name" required class="form__part"/>
+            <p class="validation__text hide">This field is required</p>
           </div>
           <div class="form__personal-data">
             <label for="lastname">Last Name <span>*</span></label>
-            <input type="text" id="lastname" name="lastname" required />
-            <p class="hide">This field is required</p>
+            <input type="text" id="lastname" name="lastname" required class="form__part"/>
+            <p class="validation__text hide">This field is required</p>
           </div>
           <div class="form__personal-data">
             <label for="email">Email Address <span>*</span></label>
-            <input type="email" id="email" name="email" required />
-            <p class="hide">This field is required</p>
-            <p class="hide">Please enter a valid email address</p>
+            <input type="email" id="email" name="email" required class="form__part" />
+            <p class="validation__text hide">This field is required</p>
+            <p class="validation__text hide">Please enter a valid email address</p>
           </div>
         </section>
         <section class="form__query">
@@ -46,6 +46,7 @@
                 value="general"
                 name="query-type"
                 required
+                class="form__part"
               />
               <label for="general">General Enquiry</label>
             </div>
@@ -55,32 +56,33 @@
                 id="support"
                 value="support"
                 name="query-type"
+                class="form__part"
               />
               <label for="support">Support Request</label>
             </div>
           </div>
 
-          <p class="hide">Please select a query type</p>
+          <p class="validation__text hide">Please select a query type</p>
         </section>
         <section class="form__message">
           <div class="form__message-container">
             <label for="message">Message <span>*</span></label>
-            <textarea name="message" id="message" required></textarea>
-            <p class="hide">This field is required</p>
+            <textarea name="message" id="message" required class="form__part"></textarea>
+            <p class="validation__text hide">This field is required</p>
           </div>
           <div class="form__consent">
-            <input type="checkbox" id="consent" name="consent" required />
+            <input type="checkbox" id="consent" name="consent" required class="form__part"/>
             <label for="consent"
               >I consent to being contacted by the team <span>*</span></label
-            >
-            <p class="hide">
+            > <br>
+              <p class="validation__text hide">
               To submit this form, please consent to being contacted
             </p>
           </div>
         </section>
         <button class="form__submit" type="submit">Submit</button>
       </form>
-      <section class="success__message">
+      <section class="success__message hide">
         <div>
           <img
             src="./assets/images/icon-success-check.svg"
@@ -91,5 +93,6 @@
         <p>Thanks for completing the form. We'll be in touch soon!</p>
       </section>
     </div>
+    <script src="app.js"></script>
   </body>
 </html>
