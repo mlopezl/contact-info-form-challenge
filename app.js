@@ -1,11 +1,24 @@
 const form = document.querySelector(".form");
 const successMessage = document.querySelector(".success__message");
 const inputs = document.querySelectorAll(".form__part");
+const radios = document.querySelectorAll('.form__radio');
+
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const submit = false;
+  let submit = true;
   const inputsArray = Array.from(inputs);
+  const radioChecked = [...radios].some(radio => radio.checked);
+  const textError = radios[0].parentElement.parentElement.nextElementSibling;
+  console.log(radioChecked);
+  console.log(textError);
+ 
+  if(!radioChecked){
+    textError.classList.remove('hide');
+    submit = false;
+  } else{
+    textError.classList.add('hide')
+  }
 
 
   inputsArray.forEach((element) => {
@@ -17,42 +30,41 @@ form.addEventListener("submit", (e) => {
     if (element.type === "text") {
       if (inputValue.trim() === "") {
         validationText.classList.remove("hide");
+        submit = false
       } else {
         validationText.classList.add("hide");
       }
     } else if (element.type === "email") {
       if (!emailRegex.test(inputValue.trim())) {
         validationText.nextElementSibling.classList.remove("hide");
+        submit =  false;
       } else {
         validationText.nextElementSibling.classList.add("hide");
       }
 
       if (inputValue.trim() === "") {
         validationText.classList.remove("hide");
+        submit = false
       } else {
         validationText.classList.add("hide");
       }
-    }  else if (element.type === "radio") {
-      if (inputValue) {
-        element.parentElement.parentElement.nextElementSibling.classList.remove('hide');
-      } else {
-        element.parentElement.parentElement.nextElementSibling.classList.add('hide');
-      }
-    }   
-    else if (tagName === "TEXTAREA") {
+    }  else if (tagName === "TEXTAREA") {
       if (inputValue.trim() === "") {
         validationText.classList.remove("hide");
+        submit = false
       } else {
         validationText.classList.add("hide");
       }
     } else if (element.type === "checkbox") {
-      if (inputValue) {
+      if (element.checked === false) {
         validationText.nextElementSibling.nextElementSibling.classList.remove("hide");
+        submit = false;
       } else {
         validationText.nextElementSibling.nextElementSibling.classList.add("hide");
       }
     }
   });
+
 
   if (submit) {
     successMessage.classList.remove("hide");
