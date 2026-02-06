@@ -1,6 +1,6 @@
 const form = document.querySelector(".form");
 const successMessage = document.querySelector(".success__message");
-const inputs = document.querySelectorAll(".form__part");
+const inputs = document.querySelectorAll(".form__input");
 const radios = document.querySelectorAll('.form__radio');
 
 
